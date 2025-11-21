@@ -49,14 +49,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .logo-left, .logo-right {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 120px;
+    min-width: 80px;
+    flex-shrink: 0;
 }
 
 .logo {
@@ -69,8 +71,9 @@ header {
 }
 
 .header-content {
-    flex: 1;
+    flex: 1 1 auto;
     text-align: center;
+    min-width: 200px;
 }
 
 .header-content h1 {
@@ -359,16 +362,21 @@ footer {
 
 @media (max-width: 768px) {
     .header-container {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         text-align: center;
+        gap: 1rem;
+        padding: 0 1rem;
     }
     
     .logo-left, .logo-right {
-        order: 1;
+        flex: 0 0 auto;
     }
     
     .header-content {
-        order: 2;
+        flex: 1 1 100%;
+        order: 3;
     }
     
     .header-content h1 {
@@ -415,20 +423,31 @@ footer {
 }
 
 @media (max-width: 480px) {
+    header {
+        padding: 1rem 0;
+    }
+    
     .header-container {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .logo-left, .logo-right {
+        min-width: 60px;
     }
     
     .header-content h1 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
     }
     
     .subtitle {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
     
     .logo {
-        height: 40px;
+        height: 35px;
+        max-width: 80px;
     }
     
     .card .amount {
